@@ -15,7 +15,7 @@ func Setup(app *fiber.App)   {
 		return ctx.JSON("Hello World")
 	})
 
-	app.Get("/insertTam", func (ctx *fiber.Ctx) error   {
+	app.Get("/insertRam", func (ctx *fiber.Ctx) error   {
 		nameCol := "ram"
 		dataParam:= strconv.Itoa(rand.Intn(100))
 		collection := Instance.Mg.Db.Collection(nameCol)
