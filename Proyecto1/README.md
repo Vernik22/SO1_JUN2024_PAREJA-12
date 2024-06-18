@@ -5,14 +5,14 @@ Utilizaremos el docker-compose.yml para poder descargar las imagenes previamente
 
 # Modulos
 ## Requisitos
- - Compilador de c
- - - gcc-13
- - Compilación de modulo
- - - make
- - Instalación de modulo en /proc
- - - sudo insmod RAM.ko
- - Eliminar modulo de /proc
- - - sudo rmmod RAM.ko
+#### Compilador de c
+    - gcc-13
+#### Compilación de modulo
+    - make
+#### Instalación de modulo en /proc
+    - sudo insmod RAM.ko
+#### Eliminar modulo de /proc
+    - sudo rmmod RAM.ko
 ## Modulo RAM
 
 ## Modulo CPU (Procesos)
