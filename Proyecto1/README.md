@@ -6,17 +6,17 @@ Utilizaremos el docker-compose.yml para poder descargar las imagenes previamente
 # Modulos
 ## Requisitos
 #### Compilador de c
-    - gcc-13
+     gcc-13
 #### Compilación de modulo
-    - make
+     make
 #### Instalación de modulo en /proc
-    - sudo insmod RAM.ko
+     sudo insmod RAM.ko
 #### Eliminar modulo de /proc
-    - sudo rmmod RAM.ko
+     sudo rmmod RAM.ko
 ## Modulo RAM
-
+Luego de haber instalado el modulo de Ram que se encuentra en el repositorio podremos hacer uso del modulo en la direccion /proc, se generara un modulo el cual nos indica el numero de memoria utilizada en ese momento, este es un archivo que se actualiza constantemente.
 ## Modulo CPU (Procesos)
-
+Luego de instalar el modulo en la carpeta /proc con el comando antes indicado podremos acceder al modulo el cual nos lista todos los procesos actualmente activos en nuestro entorno del sistema operativo, este archivo se actualiza constantemente. 
 # BackEnd
 
 # FrontEnd
