@@ -2,7 +2,9 @@
 
 # Docker-Compose
 Utilizaremos el docker-compose.yml para poder descargar las imagenes previamente subidas al docker hub y que cualquier persona con acceso al archivo pueda simplemente ejecutar un comando de docker compose y pueda levantar el proyecto sin tanto esfuerzo.
-
+```
+sudo docker compose up
+```
 # Modulos
 ## Requisitos
 #### Compilador de c
