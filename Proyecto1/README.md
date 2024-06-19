@@ -30,25 +30,30 @@ docker run -d -p 8000:8000 sopes1/so1_back_2024
 ```
 ## Rutas
 #### Obtener Porcentaje de memoria RAM
+```
 localhost/getRam
-
+```
 Para poder obtener el porcentaje de memoria podremos acceder a la siguiente ruta y este nos devolvera el valor 
 
 #### Obtener Porcentaje de CPU
+```
 localhost/getCpu
-
+```
 Para poder obtener el porcentaje de CPU podremos acceder a la siguiente ruta y este nos devolvera el valor 
 #### Obtener los Procesos actuales
+```
 localhost/getProcess
-
+```
 Para poder obtener los procesos actuales dentro del sistema operativo, tanto procesos padres como procesos hijos
 #### Crear un Proceso
+```
 localhost/insertProcess
-
+```
 Para poder crear un proceso Sleep Infinity podremos hacerlo accediendo a la siguiente ruta.
 #### Eliminar un Proceso
+```
 localhost/insertProcess?pid=**pid**
-
+```
 Podremos eliminar algun proceso segun el PID que enviemos como parametro en la ruta siguiente.
 # FrontEnd
 
