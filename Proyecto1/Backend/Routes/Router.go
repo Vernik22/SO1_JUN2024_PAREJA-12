@@ -23,9 +23,6 @@ func obtenerPorcentajeCPU(output string) string {
 	cpuInfo := lines[3]
 
 	fields := strings.Fields(cpuInfo)
-	if len(fields) < 12 {
-		return ""
-	}
 
 	// campo '%idle'
 	idlePercentage := fields[len(fields)-1]
@@ -186,16 +183,18 @@ func Setup(app *fiber.App) {
 	app.Get("/delProcess", func(ctx *fiber.Ctx) error {
 		pid := ctx.Query("pid")
 		pidInt, err := strconv.Atoi(pid)
+
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		cmd := exec.Command("kill", "-9", strconv.Itoa(pidInt))
+		cmd := exec.Command("/bin/kill", "-9", strconv.Itoa(pidInt))
+		//cmd := exec.Command("/bin/sh", "-c", "sudo", "kill", "-9", strconv.Itoa(pidInt))
 		err = cmd.Run()
 		if err != nil {
 			log.Fatal(err)
 		}
-
+		log.Print("Se ejecuta el comando")
 		return ctx.Status(200).JSON(fiber.Map{
 			"success": true,
 		})
