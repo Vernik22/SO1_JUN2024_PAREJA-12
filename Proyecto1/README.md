@@ -41,7 +41,11 @@ Para poder obtener el porcentaje de memoria podremos acceder a la siguiente ruta
 ```
 localhost/getCpu
 ```
-Para poder obtener el porcentaje de CPU podremos acceder a la siguiente ruta y este nos devolvera el valor 
+Para poder obtener el porcentaje de CPU podremos acceder a la siguiente ruta y este nos devolvera el valor. En este método se utilizó el comando mpstat, el cual para poder utilizarlo se debe instalar:
+```
+sudo apt install sysstat
+```
+el cual muestra las estadísticas relacionadas con el rendimiento de todos los procesadores lógicos del sistema.
 #### Obtener los Procesos actuales
 ```
 localhost/getProcess
@@ -92,3 +96,32 @@ Collection PROCESS
 	FATHER_PROCESS: "",
 }
 ```
+# Monitoreo en tiempo real
+La aplicación web se desarrolló con React. 
+1. Monitoreo en tiempo real del rendimiento de CPU y RAM (porcentaje libre y utilizado).
+![monitoreo CPU y RAM](https://github.com/Vernik22/SO1_JUN2024_PAREJA-12/assets/25561134/de8d0840-fdba-41ac-8859-ec2afa228a86)
+
+2. Creación de procesos en estado "sleep infinity" en el kernel del sistema operativo
+3. Eliminación de procesos según su PID
+
+![Creación y eliminación de procesos](https://github.com/Vernik22/SO1_JUN2024_PAREJA-12/assets/25561134/e5719f75-93b3-4e2d-9d58-0f38356e5a04)
+
+4. Tabla con el detalle de procesos y sus hijos
+
+![monitoreo de procesos](https://github.com/Vernik22/SO1_JUN2024_PAREJA-12/assets/25561134/5c2a31d3-3f16-4f17-8793-d4e5047f5d7a)
+
+# Pruebas de Stress
+Para verificar el funcionamiento correcto de las gráficas y obtención de datos, utilizamos el módulo de Linux llamado Stress, el cual se instala de la siguiente manera:
+```
+sudo apt install stress
+```
+
+# Requerimientos de Hardware
+Mínimos:
+* CPU: procesador de 2 GHz o más, de 64 bits
+* RAM: 4 GB o más
+* Almacenamiento: 20 GB de espacio disponible en disco para una instalación estándar con paquetes adicionales y espacio para logs, bases de datos, etc.
+
+
+  
+
