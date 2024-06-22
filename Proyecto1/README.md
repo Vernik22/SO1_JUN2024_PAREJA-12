@@ -61,7 +61,6 @@ Para poder crear un proceso Sleep Infinity podremos hacerlo accediendo a la sigu
 localhost/insertProcess?pid=**pid**
 ```
 Podremos eliminar algun proceso segun el PID que enviemos como parametro en la ruta siguiente.
-# FrontEnd
 
 # BaseDatos (MongoDB)
 
@@ -96,7 +95,8 @@ Collection PROCESS
 	FATHER_PROCESS: "",
 }
 ```
-# Monitoreo en tiempo real
+# FrontEnd
+## Monitoreo en tiempo real
 La aplicación web se desarrolló con React. 
 1. Monitoreo en tiempo real del rendimiento de CPU y RAM (porcentaje libre y utilizado).
 ![monitoreo CPU y RAM](https://github.com/Vernik22/SO1_JUN2024_PAREJA-12/assets/25561134/de8d0840-fdba-41ac-8859-ec2afa228a86)
