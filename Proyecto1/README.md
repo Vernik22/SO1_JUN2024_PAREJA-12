@@ -110,6 +110,10 @@ La aplicación web se desarrolló con React.
 
 ![monitoreo de procesos](https://github.com/Vernik22/SO1_JUN2024_PAREJA-12/assets/25561134/5c2a31d3-3f16-4f17-8793-d4e5047f5d7a)
 
+Para correr el contenedor por separado:
+```
+docker run -d -p 80:80 vaniaproyectosu2/app:2.0.0
+```
 # Pruebas de Stress
 Para verificar el funcionamiento correcto de las gráficas y obtención de datos, utilizamos el módulo de Linux llamado Stress, el cual se instala de la siguiente manera:
 ```
