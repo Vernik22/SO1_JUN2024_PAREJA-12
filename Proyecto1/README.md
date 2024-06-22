@@ -120,7 +120,7 @@ Para verificar el funcionamiento correcto de las gráficas y obtención de datos
 sudo apt install stress
 ```
 
-# Requerimientos de Hardware
+# Requerimientos de Hardware para Ubuntu Server 22.04
 Mínimos:
 * CPU: procesador de 2 GHz o más, de 64 bits
 * RAM: 4 GB o más
