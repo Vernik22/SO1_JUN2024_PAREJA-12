@@ -1,9 +1,13 @@
 package main
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
+	"net/http"
 
 	pb "clientGRPC/client"
 
@@ -30,6 +34,13 @@ func sendData(c *fiber.Ctx) error {
 		Texto: data["texto"],
 		Pais:  data["pais"],
 	}
+	go sendGrpcServer(tweet)
+	go sendToRust(&tweet)
+
+	return nil
+}
+
+func sendGrpcServer(tweet Data) {
 	conn, err := grpc.Dial("localhost:3001", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)
@@ -48,11 +59,33 @@ func sendData(c *fiber.Ctx) error {
 		Pais:  tweet.Pais,
 	})
 	if err != nil {
-		return err
+		log.Fatal(err)
+	} else {
+		fmt.Println("Respuesta del server ", ret)
 	}
 
-	fmt.Println("Respuesta del server ", ret)
-	return nil
+}
+
+func sendToRust(data *Data) {
+	jsonData, err := json.Marshal(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	res, err := http.Post("http://redis-rust:8000/set", "application/json", bytes.NewBuffer(jsonData))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}(res.Body)
+
+	if res.StatusCode != http.StatusOK {
+		log.Fatalf("status code error: %d %s", res.StatusCode, res.Status)
+	}
 }
 
 func main() {

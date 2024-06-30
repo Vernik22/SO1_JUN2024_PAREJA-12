@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-rust
+  namespace: proyect
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-rust
+  template:
+    metadata:
+      labels:
+        app: redis-rust
+    spec:
+      containers:
+      - name: redis-rust
+        image: vernik22/redis-rust
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-rust
+  namespace: proyect
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: redis-rust
